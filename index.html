@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>eHRMS — Fullstack (Postgres)</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="top-header" role="banner">
+    <div class="top-inner">
+      <img src="assets/banner.png" alt="Banner" class="banner-img">
+    </div>
+  </header>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">UP</div>
+      <div class="titles"><div class="title">eHRMS — Unified Portal</div><div class="subtitle">Green • Red • White</div></div>
+    </div>
+    <div class="nav">
+      <button data-view="dashboard" class="nav-btn active">Dashboard</button>
+      <button data-view="payroll" class="nav-btn">Payroll</button>
+      <button data-view="employees" class="nav-btn">Employees</button>
+      <button data-view="promotions" class="nav-btn">Promotions</button>
+    </div>
+    <div class="user-area">
+      <button id="btnOpenLogin" class="btn small">Login</button>
+      <button id="btnLogout" class="btn small" style="display:none">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar card">
+      <h3>Modules</h3>
+      <ul class="side-menu">
+        <li><button class="side-btn" data-view="dashboard">Dashboard</button></li>
+        <li><button class="side-btn" data-view="payroll">Payroll</button></li>
+        <li><button class="side-btn" data-view="employees">Employees</button></li>
+        <li><button class="side-btn" data-view="profiles">Job Profiles</button></li>
+        <li><button class="side-btn" data-view="promotions">Promotions</button></li>
+        <li><button class="side-btn" data-view="chat">Chatbot</button></li>
+      </ul>
+    </aside>
+
+    <section id="main" class="card content-area">
+      <!-- dynamic content -->
+    </section>
+
+    <aside class="card rightcol">
+      <h4>HR Chatbot</h4>
+      <div id="chatWindow" class="chat-window"></div>
+      <div class="chat-controls">
+        <input id="chatInput" placeholder="Ask: 'Leave balance EMP001' or 'Salary slip EMP002'">
+        <button id="sendChat" class="btn primary">Send</button>
+      </div>
+      <hr>
+      <div class="muted small">Chatbot uses rule-based replies or OpenAI if configured.</div>
+    </aside>
+  </main>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-card card">
+      <button id="loginClose" class="modal-close">×</button>
+      <h3>Login</h3>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <input id="loginUser" placeholder="Username" />
+        <input id="loginPass" placeholder="Password" type="password" />
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button id="btnLogin" class="btn primary">Login</button>
+          <button id="btnRegister" class="btn">Register</button>
+        </div>
+        <div id="loginMsg" class="muted small"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card card">
+      <button id="modalClose" class="modal-close">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
